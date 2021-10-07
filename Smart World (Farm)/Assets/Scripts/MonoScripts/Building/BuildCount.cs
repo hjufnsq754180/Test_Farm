@@ -11,10 +11,12 @@ public class BuildCount : MonoBehaviour
     [SerializeField] private List<SO.House> _houses;
     [SerializeField] private List<SO.Storage> _storages;
     [SerializeField] private Building[] _buildings;
+    [SerializeField] private CurrencyUI _currencyUI;
 
-    private void Awake()
+    private void Start()
     {
         _buildings = FindObjectsOfType<Building>();
+        _currencyUI = FindObjectOfType<CurrencyUI>();
 
         FindHouses();
         FindStorages();
@@ -32,6 +34,7 @@ public class BuildCount : MonoBehaviour
                 sumMaxTree += item.woodCount;
             }
             currency.MaxTree = sumMaxTree;
+            _currencyUI.SetTreeText();
         }
     }
 

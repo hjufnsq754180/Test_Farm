@@ -56,6 +56,10 @@ public class PersonAI : MonoBehaviour
                 currentTree = _treeList.trees.OrderBy(x => Vector3.Distance(gameObject.transform.position, x.transform.position)).FirstOrDefault();
             }
         }
+        else
+        {
+            isChopCor = false;
+        }
     }
 
     IEnumerator ChopCoroutine()
